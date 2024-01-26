@@ -1,0 +1,31 @@
+
+{
+  "name": "nexters-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass --watch sass/main.scss sass/main.css",
+    "devserver": "live-server --browser=chrome",
+    "start": "npm-run-all --parallel devserver watch:sass node-sass --watch sass/main.scss/styles -o sass/main.css",
+    "compile:sass": "node-sass --source-map true sass/main.scss sass/main.css ",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' sass/main.comp.css -o sass/main.prefix.css",
+    "compress:css": "node-sass sass/main.prefix.css sass/main.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.60.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "concat": "^1.0.3",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^10.1.0"
+  }
+}
+
